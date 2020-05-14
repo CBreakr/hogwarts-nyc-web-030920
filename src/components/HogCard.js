@@ -24,26 +24,28 @@ export default class HogCard extends React.Component {
 		// console.log(this.state)
 		const className = this.state.hidden ? "hidden" : "card";
 		return (
-			<div className={className} onClick={this.flipCard}>
-				{this.state.isFront ? (
-					<div>
-						<div>{this.props.name}</div>
-						<div>{this.getImg()}</div>
-					</div>
-				) : (
-					<div>
-						<div>Specialty: {this.props.specialty}</div>
-						<div>Weight: {this.props.weight}</div>
-						<div>Greased: {this.props.greased ? "YES" : "NO"}</div>
+			<React.Fragment>
+				<div className={className} onClick={this.flipCard}>
+					{this.state.isFront ? (
 						<div>
-							Highest Medal Achieved:{" "}
-							{this.props["highest medal achieved"]}
+							<div>{this.props.name}</div>
+							<div>{this.getImg()}</div>
 						</div>
-					</div>
-				)}
-				<br />
-				<button onClick={this.hideHog}>Hide Hog</button>
-			</div>
+					) : (
+						<div>
+							<div>Specialty: {this.props.specialty}</div>
+							<div>Weight: {this.props.weight}</div>
+							<div>Greased: {this.props.greased ? "YES" : "NO"}</div>
+							<div>
+								Highest Medal Achieved:{" "}
+								{this.props["highest medal achieved"]}
+							</div>
+						</div>
+					)}
+					<br />
+					<button onClick={this.hideHog}>Hide Hog</button>
+				</div>
+			</React.Fragment>
 		);
 	}
 }
